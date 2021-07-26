@@ -1,0 +1,1 @@
+{"version":3,"sources":["js/changeTheme.js","index.js"],"names":["console","log"],"mappings":";AAAAA,QAAQC,IAAI;;ACAZ,aAAA,QAAA","file":"src.1bbb917f.js","sourceRoot":"../src","sourcesContent":["console.log('hello world');\n","import './js/changeTheme.js';\n"]}
