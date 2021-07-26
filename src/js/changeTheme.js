@@ -12,15 +12,30 @@ const refs = {
   body: document.body,
 };
 
+refs.listMenu.innerHTML = createMenuMarkup(menu);
 refs.checkbox.addEventListener('change', addsStyle);
 
 function addsStyle(e) {
-    if()
+  if (e.target.checked) {
+    refs.body.classList.add(Theme.DARK);
+    refs.body.classList.remove(Theme.LIGHT);
+    localStorage.setItem('theme', Theme.DARK);
+    return;
+  }
+  refs.body.classList.add(Theme.LIGHT);
+  refs.body.classList.remove(Theme.DARK);
+  localStorage.setItem('theme', Theme.LIGHT);
 }
 
-console.log(refs.checkbox);
-console.log(refs.listMenu);
-console.log(refs.body);
-console.log(createMenuMarkup(menu));
+(function () {
+  refs.body.classList.add(
+    localStorage.getItem('theme') ? localStorage.getItem('theme') : Theme.LIGHT,
+  );
+  refs.checkbox.checked = localStorage.getItem('theme') === Theme.DARK;
+})();
 
-refs.listMenu.innerHTML = createMenuMarkup(menu);
+// console.log(refs.checkbox);
+// console.log(refs.listMenu);
+// console.log(refs.body);
+// console.log(createMenuMarkup(menu));
+// console.log(refs.checkbox.checked);
